@@ -29,7 +29,7 @@ class AppBarButtons extends StatelessWidget {
                 heroTag: "chatIcon",
                 elevation: 5,
                 onPressed: (){
-                  Navigator.pushNamed(context,  '/ChatScreen');
+                  Navigator.pushNamed(context,  '/ChatHome');
                 },
                 backgroundColor: MyColors.white,
                 child: Image.asset("assets/icons/chatIcon.png", color: MyColors.primary,height: 20,),
@@ -45,7 +45,7 @@ class AppBarButtons extends StatelessWidget {
                 },
               )
             ],
-          )
+          ),
         ],
       ),
     );

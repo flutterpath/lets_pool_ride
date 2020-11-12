@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lets_pool/utils/my_color.dart';
 import 'package:lets_pool/widgets/appBar/appBarSpaceBetween.dart';
-import 'package:lets_pool/widgets/circleAvatarWidget.dart';
 import 'package:lets_pool/widgets/containers/elevatedContainer.dart';
 import 'package:lets_pool/widgets/text/normalText.dart';
 import 'package:lets_pool/widgets/text/textBold.dart';
@@ -13,6 +12,15 @@ class GroupInfo extends StatefulWidget {
 }
 
 class _GroupInfoState extends State<GroupInfo>{
+
+    void handleClick(String value) {
+    switch (value) {
+      case 'Demote':
+        break;
+      case 'Leave group':
+        break;
+    }
+  }
 
   TextEditingController _groupName;
   TextEditingController _description;
@@ -39,9 +47,10 @@ class _GroupInfoState extends State<GroupInfo>{
               suffix: Container(),
             ),
             SizedBox(height: 20,),
-            CircleAvatarWidget(
+            CircleAvatar(
               radius: MediaQuery.of(context).size.height*0.05,
-              imagePath: "assets/icons/group.png",
+              backgroundColor: MyColors.primary,
+              child: Image.asset("assets/icons/group.png"),
             ),
             SizedBox(height: 10,),
             NormalText(text: "Edit Group Icon",fontSize: 14,textAlign: TextAlign.center,txtColor: MyColors.primary,),
@@ -76,11 +85,11 @@ class _GroupInfoState extends State<GroupInfo>{
             ListView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemCount: 4,
+              itemCount: 6,
               itemBuilder: (context, index){
               return Column(
                 children: [
-                  SizedBox(height: 10,),
+                  SizedBox(height: 5,),
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -104,10 +113,22 @@ class _GroupInfoState extends State<GroupInfo>{
                         ),
                           ],
                         ),
-                        Icon(Icons.more_vert)
+                        PopupMenuButton<String>(
+                  onSelected: handleClick,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                  icon: Icon(Icons.more_vert),
+                  itemBuilder: (BuildContext context) {
+                    return {"Demote",'Leave group',}.map((String choice) {
+                      return PopupMenuItem<String>(
+                          value: choice,
+                          child: NormalText(text: choice, txtColor: MyColors.redGraDark,fontSize: 12,)
+                      );
+                    }).toList();
+                  },
+                ),
                       ],
                     ),
-                    SizedBox(height: 10,),
+                    SizedBox(height: 5,),
                 ],
               );
             })

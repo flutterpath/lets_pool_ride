@@ -22,7 +22,6 @@ class _RecoveryPageState extends State<RecoveryPage> {
         child: ListView(
           children: [
             BackAppBar(
-              onPressed: () {},
             ),
             SizedBox(
               height: 10,

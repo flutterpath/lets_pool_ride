@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lets_pool/chat.dart';
+import 'package:lets_pool/chatPages/chatDialog.dart';
 import 'package:lets_pool/utils/my_color.dart';
 import 'package:lets_pool/widgets/buttons/roundedIconButton.dart';
 import 'package:lets_pool/widgets/text/textBold.dart';
@@ -44,7 +44,7 @@ class AppBarWithWidgets extends StatelessWidget {
                             context: context,
                             headerAnimationLoop: false,
                             dialogType: DialogType.NO_HEADER,
-                            body: Chat())
+                            body: ChatDialog())
                           ..show();
                       },
                       backgroundColor: MyColors.primaryLight,

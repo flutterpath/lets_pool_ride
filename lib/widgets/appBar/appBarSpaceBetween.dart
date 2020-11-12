@@ -18,7 +18,7 @@ class AppBarSpaceBetween extends StatelessWidget {
          GestureDetector(onTap: (){Navigator.pop(context);},child: Icon(Icons.arrow_back_ios)),
           TextBold(text: title,),
           GestureDetector(
-            onTap: (){},
+            onTap: ()=> Navigator.pop(context),
             child: suffix
           ),
         ],

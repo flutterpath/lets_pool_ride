@@ -17,7 +17,7 @@ class AppBarText extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          IconButton(icon: Icon(Icons.arrow_back_ios), onPressed: onPressed, color: MyColors.black,),
+          IconButton(icon: Icon(Icons.arrow_back_ios), onPressed: ()=>Navigator.pop(context), color: MyColors.black,),
           TextBold(
             fontSize: 18,
             text: title,

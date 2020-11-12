@@ -253,6 +253,7 @@ class _CheckoutState extends State<Checkout> {
                 btnText: "Rate Your Rider",
                 onPressed: () {
                   AwesomeDialog(
+                    dismissOnTouchOutside: false,
                     context: context,
                     animType: AnimType.SCALE,
                     body: Stack(
@@ -382,9 +383,9 @@ class _CheckoutState extends State<Checkout> {
                       ],
                     ),
                     Positioned(
-                      bottom: -40,
-                      left: width*0.5-182,
-                      child: FilledButton(btnText: "Submit",btnWidth: width*0.7,onPressed: (){},))
+                        bottom: -40,
+                        left: width*0.5-182,
+                        child: FilledButton(btnText: "Submit",onPressed :(){}, btnWidth: width*0.7,))
                       ],
                     ),
                     customHeader: CircleAvatarWidget(

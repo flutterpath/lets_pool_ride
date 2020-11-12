@@ -23,7 +23,7 @@ class _NewPasswordState extends State<NewPassword> {
         padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
         child: ListView(
           children: [
-            BackAppBar(onPressed: (){},),
+            BackAppBar(),
             SizedBox(height: 10,),
             FadeAnimation(delay: 1,child: Text32Bold(text: "New Password",)),
             SizedBox(height: 10,),

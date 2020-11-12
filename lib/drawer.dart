@@ -3,15 +3,18 @@ import 'package:lets_pool/utils/my_color.dart';
 import 'package:lets_pool/widgets/text/normalText.dart';
 import 'package:lets_pool/widgets/text/textBold.dart';
 
-class MyDrawer extends StatelessWidget {
-  Widget iconWithTitle(String imgPath, String title) {
-    return ListTile(
-      leading: Image.asset(
-        imgPath,
-        height: 25,
-      ),
-      title: TextBold(
-        text: title,
+class  MyDrawer extends StatelessWidget {
+  Widget iconWithTitle(String imgPath, String title, {void Function() onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+          child: ListTile(
+        leading: Image.asset(
+          imgPath,
+          height: 25,
+        ),
+        title: TextBold(
+          text: title,
+        ),
       ),
     );
   }
@@ -74,27 +77,42 @@ class MyDrawer extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            iconWithTitle("assets/icons/courseIcon.png", "Dashboard"),
+            iconWithTitle("assets/icons/courseIcon.png", "Dashboard",onTap:() => Navigator.pop(context)),
             SizedBox(
               height: 20,
             ),
-            iconWithTitle("assets/icons/car.png", "My ride"),
+            iconWithTitle("assets/icons/car.png", "My ride", onTap: (){
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/MyRide');
+            }),
             SizedBox(
               height: 20,
             ),
-            iconWithTitle("assets/icons/cardIcon.png", "My payment"),
+            iconWithTitle("assets/icons/cardIcon.png", "My payment", onTap: (){
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/MyWallet');
+            }),
             SizedBox(
               height: 20,
             ),
-            iconWithTitle("assets/icons/vehicleIcon.png", "My vehicles"),
+            iconWithTitle("assets/icons/vehicleIcon.png", "My vehicles", onTap: (){
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/MyRide');
+            }),
             SizedBox(
               height: 20,
             ),
-            iconWithTitle("assets/icons/iconChat.png", "Chat"),
+            iconWithTitle("assets/icons/iconChat.png", "Chat", onTap: (){
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/ChatHome');
+            }),
             SizedBox(
               height: 20,
             ),
-            iconWithTitle("assets/icons/iconGroup.png", "Group"),
+            iconWithTitle("assets/icons/iconGroup.png", "Group", onTap: (){
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/ChatHome');
+            }),
             Spacer(),
             Divider(
               color: MyColors.grey,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lets_pool/utils/my_color.dart';
 import 'package:lets_pool/widgets/appBar/appBarText.dart';
+import 'package:lets_pool/widgets/containers/elevatedSquareContainer.dart';
 import 'package:lets_pool/widgets/text/normalText.dart';
 import 'package:lets_pool/widgets/text/textBold.dart';
 
@@ -21,7 +22,9 @@ class _MyWalletState extends State<MyWallet> {
             padding: const EdgeInsets.only(left: 20, right: 20,top: 20),
             child: AppBarText(
               title: "My Wallet",
-              onPressed: (){},
+              onPressed: (){
+                Navigator.pop(context);
+              },
             ),
           ),
           SizedBox(height: 10,),
@@ -59,11 +62,11 @@ class _MyWalletState extends State<MyWallet> {
                 NormalText(
                   text: "Quick Ride Wallet",
                   txtColor: MyColors.white,
-                  fontSize: 16,
+                  fontSize: 18,
                 ),
                 TextBold(
                   text: "43.92 Points",
-                  fontSize: 16,
+                  fontSize: 18,
                   txtColor: MyColors.white,
                 )
               ],
@@ -71,16 +74,51 @@ class _MyWalletState extends State<MyWallet> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20,right: 20),
-            child: Column(
-              children: [
-                NormalText(
-                  text: "Add your favourite wallet to pay and redeem directly.",
-                  fontSize: 16,
-                )
-              ],
+            child: NormalText(
+              text: "Add your favourite wallet to pay and redeem directly.",
+              overflow: TextOverflow.visible,
+              fontSize: 16,
             ),
           ),
-          Row()
+          SizedBox(height: 20,),
+            Container(
+              height: 150,
+              child: GridView.builder(
+                  itemCount: 3,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3),
+                  itemBuilder: (context, index) {
+                    return (index == 2) ?
+                    GestureDetector(
+                      onTap:() => Navigator.pushNamed(context, '/BankList'),
+                                          child: ElevatedSquareContainer(
+                        child: Center(
+                          child: Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                                border: Border.all(color: MyColors.primary, width: 2),
+                                borderRadius: BorderRadius.circular(25)),
+                            child: Icon(
+                              Icons.add,
+                              size: 40,
+                              color: MyColors.primary,
+                            ),
+                          ),
+                        ),),
+                    )
+                    :
+                    GestureDetector(
+                      onTap: ()=> Navigator.pushNamed(context, '/RedeemPoints'),
+                                          child: ElevatedSquareContainer(
+                        child: Image.asset(
+                          "assets/logo/bank1.png",
+                          height: 20,
+                        ),
+                      ),
+                    );
+                  }),
+            )
         ],
       ),
     );

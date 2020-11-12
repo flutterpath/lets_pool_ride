@@ -78,7 +78,9 @@ class _FindRideState extends State<FindRide> {
           ],
         ),
         SizedBox(height: 20,),
-        FilledButton(btnText: "Find", btnWidth: MediaQuery.of(context).size.width, onPressed: (){},),
+        FilledButton(btnText: "Find", btnWidth: MediaQuery.of(context).size.width, onPressed: (){
+          Navigator.pushNamed(context, '/MatchingRiders');
+        },),
         SizedBox(height: 10,),
       ],
     );

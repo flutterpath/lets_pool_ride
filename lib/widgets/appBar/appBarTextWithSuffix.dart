@@ -21,7 +21,7 @@ class AppBarTextWithSuffix extends StatelessWidget {
           Row(
             children: [
               SizedBox(width: 10,),
-              GestureDetector(onTap: onTap,child: Icon(Icons.arrow_back_ios,color: MyColors.black,)),
+              GestureDetector(onTap: ()=> Navigator.pop(context),child: Icon(Icons.arrow_back_ios,color: MyColors.black,)),
               SizedBox(width: 10,),
               TextBold(
                 fontSize: 18,

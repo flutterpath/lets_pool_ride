@@ -36,10 +36,13 @@ class _BankListState extends State<BankList> {
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3),
                   itemBuilder: (context, index) {
-                    return ElevatedSquareContainer(
-                      child: Image.asset(
-                        "assets/logo/bank1.png",
-                        height: 20,
+                    return GestureDetector(
+                      onTap: ()=> Navigator.pushNamed(context, '/AddBankAccount'),
+                                          child: ElevatedSquareContainer(
+                        child: Image.asset(
+                          "assets/logo/bank1.png",
+                          height: 20,
+                        ),
                       ),
                     );
                   }),

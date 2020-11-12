@@ -7,16 +7,19 @@ import 'package:lets_pool/auth/signIn.dart';
 import 'package:lets_pool/auth/signUp.dart';
 import 'package:lets_pool/bankPages/addBankAccount.dart';
 import 'package:lets_pool/bankPages/bankList.dart';
-import 'package:lets_pool/chat.dart';
-import 'package:lets_pool/chatPages/chatScreen.dart';
+import 'package:lets_pool/bankPages/redeemPoints.dart';
+import 'package:lets_pool/chatPages/chatDialog.dart';
+import 'package:lets_pool/chatPages/chatHome.dart';
+import 'package:lets_pool/chatPages/chatPage.dart';
 import 'package:lets_pool/checkIn.dart';
 import 'package:lets_pool/checkout.dart';
 import 'package:lets_pool/dashBoard/dashBoard.dart';
 import 'package:lets_pool/dashBoard/notification.dart';
 import 'package:lets_pool/feedback.dart';
 import 'package:lets_pool/groupInfo.dart';
-import 'package:lets_pool/matchingPassenger.dart';
-import 'package:lets_pool/matchingRiders.dart';
+import 'package:lets_pool/matchingPassenger/matchingPassenger.dart';
+import 'package:lets_pool/matchingRiders/matchingRiders.dart';
+import 'package:lets_pool/myRide.dart';
 import 'package:lets_pool/myWallet.dart';
 import 'package:lets_pool/onBoarding/onBoarding.dart';
 import 'package:lets_pool/ridersRoute.dart';
@@ -39,22 +42,25 @@ class MyApp extends StatelessWidget {
         primaryColor: MyColors.primary,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // home: MatchingRiders(),
       initialRoute: '/',
       routes: {
-       '/': (context) => GroupInfo(),
+       '/': (context) => DashBoard(),
+        '/RedeemPoints': (context) => RedeemPoints(),
+        '/MyRide': (context) => MyRide(),
         '/OTPPage': (context) => OTPPage(),
         '/NotificationScreen': (context) => NotificationScreen(),
         '/NewPassword': (context) => NewPassword(),
         '/RecoveryPage': (context) => RecoveryPage(),  
         '/SignIn': (context) => SignIn(),
         '/SignUp': (context) => SignUp(),
+        '/GroupInfo': (context) => GroupInfo(),
+        '/ChatPage': (context) => ChatPage(),
         '/AddBankAccount': (context) => AddBankAccount(),
         '/BankList': (context) => BankList(),
         '/DashBoard': (context) => DashBoard(),
         '/OnBoarding': (context) => OnBoarding(),
-        '/ChatScreen': (context) => ChatScreen(),
-        '/Chat': (context) => Chat(),
+        '/ChatHome': (context) => ChatHome(),
+        '/ChatDialog': (context) => ChatDialog(),
         '/CheckIn': (context) => CheckIn(),
         '/Checkout': (context) => Checkout(),
         '/FeedBack': (context) => FeedBack(),

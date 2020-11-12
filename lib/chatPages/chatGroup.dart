@@ -25,54 +25,57 @@ class _ChatGroupState extends State<ChatGroup> {
     return ListView.builder(
         itemCount: 1,
         itemBuilder: (context, index){
-      return ElevatedContainer(
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            CircleAvatar(radius: 22,backgroundImage: AssetImage("assets/avatar/avatar1.png",)),
-            SizedBox(width: 10,),
-            Container(
-              child: Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TextBold(
-                      text: "For king and glory",
-                      fontSize: 18,
-                    ),
-                    SizedBox(height: 5,),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        NormalText(
-                          text: "5 members  * ",
-                          fontSize: 14,
-                          txtColor: MyColors.greyText,
-                        ),
-                        SizedBox(width: 5,),
-                        NormalText(text : "4 actives", fontSize: 14,txtColor: MyColors.a1GradientDark,)
-                      ],
-                    ),
-                  ],
+      return GestureDetector(
+        onTap: ()=> Navigator.pushNamed(context, '/ChatPage'),
+              child: ElevatedContainer(
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              CircleAvatar(radius: 22,backgroundImage: AssetImage("assets/avatar/avatar1.png",)),
+              SizedBox(width: 10,),
+              Container(
+                child: Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TextBold(
+                        text: "For king and glory",
+                        fontSize: 18,
+                      ),
+                      SizedBox(height: 5,),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          NormalText(
+                            text: "5 members  * ",
+                            fontSize: 14,
+                            txtColor: MyColors.greyText,
+                          ),
+                          SizedBox(width: 5,),
+                          NormalText(text : "4 actives", fontSize: 14,txtColor: MyColors.a1GradientDark,)
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            PopupMenuButton<String>(
-              onSelected: handleClick,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10.0))),
-              icon: Icon(Icons.more_vert),
-              itemBuilder: (BuildContext context) {
-                return {"Add Members",'Exit',}.map((String choice) {
-                  return PopupMenuItem<String>(
-                    value: choice,
-                    child: NormalText(text: choice, txtColor: MyColors.redGraDark,fontSize: 12,)
-                  );
-                }).toList();
-              },
-            ),
-          ],
+              PopupMenuButton<String>(
+                onSelected: handleClick,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                icon: Icon(Icons.more_vert),
+                itemBuilder: (BuildContext context) {
+                  return {"Add Members",'Exit',}.map((String choice) {
+                    return PopupMenuItem<String>(
+                      value: choice,
+                      child: NormalText(text: choice, txtColor: MyColors.redGraDark,fontSize: 12,)
+                    );
+                  }).toList();
+                },
+              ),
+            ],
+          ),
         ),
       );
     });

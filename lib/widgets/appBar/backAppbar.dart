@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:lets_pool/utils/my_color.dart';
 
 class BackAppBar extends StatelessWidget {
-  final void Function() onPressed;
 
-  const BackAppBar({Key key, this.onPressed}) : super(key: key);
+  const BackAppBar({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,7 @@ class BackAppBar extends StatelessWidget {
       width: width,
       child: Row(
         children: [
-          GestureDetector(onTap: onPressed ,child: Icon(Icons.arrow_back_ios,color: MyColors.black,)),
+          GestureDetector(onTap: ()=> Navigator.pop(context),child: Icon(Icons.arrow_back_ios,color: MyColors.black,)),
         ],
       ),
     );

@@ -121,7 +121,9 @@ class _NewInviteState extends State<NewInvite> {
                       btnColor: MyColors.accent,
                       btnWidth: width*0.23,
                     ),
-                    FilledButton(btnText: "Join",btnWidth: width*0.23,onPressed: (){},),
+                    FilledButton(btnText: "Join",btnWidth: width*0.23,onPressed: (){
+                      Navigator.pushNamed(context, '/CheckIn');
+                    },),
                   ],
                 )
               ],

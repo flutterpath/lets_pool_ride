@@ -247,7 +247,9 @@ class _CheckInState extends State<CheckIn> {
                         ),
                         FilledButton(
                           btnText: "Check in",
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.pushNamed(context, '/Checkout');
+                          },
                           btnWidth: width*0.35,
                         ),
                       ],
