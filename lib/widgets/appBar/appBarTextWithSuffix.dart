@@ -3,11 +3,11 @@ import 'package:lets_pool/utils/my_color.dart';
 import 'package:lets_pool/widgets/text/textBold.dart';
 
 class AppBarTextWithSuffix extends StatelessWidget {
-  final void Function() onPressed;
+  final void Function() onTap;
   final String title;
   final Widget suffix;
 
-  const AppBarTextWithSuffix({Key key, this.onPressed, this.title, this.suffix}) : super(key: key);
+  const AppBarTextWithSuffix({Key key, this.onTap, this.title, this.suffix}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class AppBarTextWithSuffix extends StatelessWidget {
           Row(
             children: [
               SizedBox(width: 10,),
-              Icon(Icons.arrow_back_ios,color: MyColors.black,),
+              GestureDetector(onTap: onTap,child: Icon(Icons.arrow_back_ios,color: MyColors.black,)),
               SizedBox(width: 10,),
               TextBold(
                 fontSize: 18,

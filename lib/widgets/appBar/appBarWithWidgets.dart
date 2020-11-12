@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:lets_pool/chat.dart';
 import 'package:lets_pool/utils/my_color.dart';
 import 'package:lets_pool/widgets/buttons/roundedIconButton.dart';
 import 'package:lets_pool/widgets/text/textBold.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 
 class AppBarWithWidgets extends StatelessWidget {
   final String title;
@@ -21,33 +23,48 @@ class AppBarWithWidgets extends StatelessWidget {
         children: [
           Row(
             children: [
-              GestureDetector(onTap: (){Navigator.pop(context);},child: Icon(Icons.arrow_back_ios)),
-              TextBold(text: title,),
+              GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Icon(Icons.arrow_back_ios)),
+              TextBold(
+                text: title,
+              ),
             ],
           ),
           (suffix == null)
-          ?
-              Row(
-                children: [
-                FloatingActionButton(
-                elevation: 0,
-    onPressed: (){},
-    backgroundColor: MyColors.primaryLight,
-    child: Image.asset("assets/icons/chatIcon.png", color: MyColors.primary,height: 20,),
-    ),
-                  SizedBox(width: 10,),
-                  RoundedIconButton(
-                    icon: Icons.more_horiz,
-                    backgroundColor: MyColors.primaryLight,
-                    onPressed: (){},
-                  )
-                ],
-              )
-              :
-          GestureDetector(
-              onTap: (){},
-              child: suffix
-          ),
+              ? Row(
+                  children: [
+                    FloatingActionButton(
+                      elevation: 0,
+                      onPressed: () {
+                        AwesomeDialog(
+                            dismissOnTouchOutside: false,
+                            context: context,
+                            headerAnimationLoop: false,
+                            dialogType: DialogType.NO_HEADER,
+                            body: Chat())
+                          ..show();
+                      },
+                      backgroundColor: MyColors.primaryLight,
+                      child: Image.asset(
+                        "assets/icons/chatIcon.png",
+                        color: MyColors.primary,
+                        height: 20,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    RoundedIconButton(
+                      icon: Icons.more_horiz,
+                      backgroundColor: MyColors.primaryLight,
+                      onPressed: () {},
+                    )
+                  ],
+                )
+              : GestureDetector(onTap: () {}, child: suffix),
         ],
       ),
     );

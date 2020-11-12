@@ -16,6 +16,7 @@ class _FindRideState extends State<FindRide> {
   Widget build(BuildContext context) {
     return ListView(
       shrinkWrap: true,
+      padding: EdgeInsets.zero,
       children: [
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,

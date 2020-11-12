@@ -14,8 +14,7 @@ class FilledButton extends StatelessWidget {
       height: 45,
       child: RaisedButton(
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0),
-            side: BorderSide(width: 2,color: MyColors.primary)),
+            borderRadius: BorderRadius.circular(30.0),),
         onPressed: onPressed,
         color: MyColors.primary,
         textColor: Colors.white,

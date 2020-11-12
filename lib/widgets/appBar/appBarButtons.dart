@@ -15,25 +15,34 @@ class AppBarButtons extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           RoundedIconButton(
+            heroTag: "menu",
             elevation: 5,
             icon: Icons.menu,
             backgroundColor: MyColors.white,
-            onPressed: (){},
+            onPressed: (){
+              Scaffold.of(context).openDrawer();
+            },
           ),
           Row(
             children: [
               FloatingActionButton(
+                heroTag: "chatIcon",
                 elevation: 5,
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.pushNamed(context,  '/ChatScreen');
+                },
                 backgroundColor: MyColors.white,
                 child: Image.asset("assets/icons/chatIcon.png", color: MyColors.primary,height: 20,),
               ),
               SizedBox(width: 10,),
               RoundedIconButton(
+                heroTag: "notifications",
                 elevation: 5,
                 icon: Icons.notifications,
                 backgroundColor: MyColors.white,
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.pushNamed(context, '/NotificationScreen');
+                },
               )
             ],
           )

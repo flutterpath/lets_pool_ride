@@ -4,8 +4,10 @@ import 'package:lets_pool/utils/my_color.dart';
 class ElevatedRoundTextField extends StatelessWidget {
   final String hintText;
   final bool obscureText;
+  final Widget prefix;
+  final IconData prefixIcon;
 
-  const ElevatedRoundTextField({Key key, this.hintText, this.obscureText}) : super(key: key);
+  const ElevatedRoundTextField({Key key, this.hintText, this.obscureText, this.prefix, this.prefixIcon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,7 @@ class ElevatedRoundTextField extends StatelessWidget {
           const EdgeInsets.only(
               bottom: 8.0,),
         border: InputBorder.none,
-        icon: Icon(Icons.email,
+        icon: prefix ?? Icon(prefixIcon ?? Icons.email_outlined,
           color: MyColors.greyText,
         ),
         hintText: hintText,

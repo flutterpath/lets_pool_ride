@@ -2,7 +2,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:lets_pool/widgets/animation/fadeAnimation.dart';
 import 'package:lets_pool/widgets/animation/fadeAnimation1.dart';
-import 'package:lets_pool/auth/signUp.dart';
 import 'package:lets_pool/utils/my_color.dart';
 import 'package:lets_pool/widgets/textFields/elevatedRoundTextfield.dart';
 import 'package:lets_pool/widgets/buttons/gFilledButton.dart';
@@ -17,7 +16,6 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,20 +24,15 @@ class _SignInState extends State<SignIn> {
           children: <Widget>[
             Container(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height/3.0,
+              height: MediaQuery.of(context).size.height / 3.0,
               decoration: BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    colors: [
-                      MyColors.pGradientDark,
-                      MyColors.pGradientLight
-                    ],
+                    colors: [MyColors.pGradientDark, MyColors.pGradientLight],
                   ),
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(90)
-                  )
-              ),
+                  borderRadius:
+                      BorderRadius.only(bottomLeft: Radius.circular(90))),
               child: FadeAnimation1(
                 delay: 1.1,
                 child: Stack(
@@ -60,83 +53,113 @@ class _SignInState extends State<SignIn> {
                         ],
                       ),
                     ),
-                      Positioned(
-                        top: 50,
-                        child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Image.asset("assets/logo/logo.png", height: MediaQuery.of(context).size.height*0.2,),
-                              Text16SemiBold(text: "LET'S POOL",color: MyColors.white,)
-                            ],
+                    Positioned(
+                      top: 50,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset(
+                            "assets/logo/logo.png",
+                            height: MediaQuery.of(context).size.height * 0.2,
                           ),
+                          Text16SemiBold(
+                            text: "LET'S POOL",
+                            color: MyColors.white,
+                          )
+                        ],
                       ),
+                    ),
                   ],
                 ),
               ),
             ),
-
             Container(
-              height: MediaQuery.of(context).size.height-MediaQuery.of(context).size.height/3.5,
+              height: MediaQuery.of(context).size.height -
+                  MediaQuery.of(context).size.height / 3.5,
               width: MediaQuery.of(context).size.width,
-              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.05, left: 20, right: 20),
+              padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.05,
+                  left: 20,
+                  right: 20),
               child: Column(
                 children: <Widget>[
-                  FadeAnimation(delay: 1,child: Align(alignment: Alignment.centerLeft,child: Text32Bold(text: "Welcome Back!",))),
-              SizedBox(height: 10,),
-              FadeAnimation(
-                delay: 1.1,
-                child: Align(alignment: Alignment.centerLeft,child: RichText(
-                      text: TextSpan(
-                          text: 'Don\'t have an account?',
-                          style: TextStyle(
-                              color: MyColors.black, fontSize: 14),
-                          children: <TextSpan>[
-                            TextSpan(text: ' Sign up now!',
-                                style: TextStyle(
-                                    color: MyColors.primary, fontSize: 14),
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => SignUp()),
-                                    );
-                                  }
-                            )
-                          ]
+                  FadeAnimation(
+                      delay: 1,
+                      child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text32Bold(
+                            text: "Welcome Back!",
+                          ))),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  FadeAnimation(
+                    delay: 1.1,
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: RichText(
+                        text: TextSpan(
+                            text: 'Don\'t have an account?',
+                            style:
+                                TextStyle(color: MyColors.black, fontSize: 14),
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: ' Sign up now!',
+                                  style: TextStyle(
+                                      color: MyColors.primary, fontSize: 14),
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      Navigator.pushReplacementNamed(
+                                          context, '/SignUp');
+                                    })
+                            ]),
                       ),
-                    ),),
-              ),
-                  SizedBox(height: 30,),
-                  FadeAnimation(
-                    delay: 1.2,
-                    child: ElevatedRoundTextField(
-                      hintText: 'Email',
-                    )
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
                   ),
                   FadeAnimation(
-                    delay: 1.3,
-                    child: ElevatedRoundTextField(
-                      hintText: 'Password',
-                    )
+                      delay: 1.2,
+                      child: ElevatedRoundTextField(
+                        hintText: 'Email',
+                      )),
+                  FadeAnimation(
+                      delay: 1.3,
+                      child: ElevatedRoundTextField(
+                        hintText: 'Password',
+                        prefixIcon: Icons.lock_outline,
+                      )),
+                  SizedBox(
+                    height: 20,
                   ),
-                  SizedBox(height: 20,),
                   FadeAnimation(
                     delay: 1.4,
                     child: Align(
                       alignment: Alignment.centerRight,
-                      child: Text('Forgot Password ?',
-                        style: TextStyle(
-                            color: MyColors.grey,
-                          fontWeight: FontWeight.bold
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(
+                              context, '/RecoveryPage');
+                        },
+                        child: Text(
+                          'Forgot Password ?',
+                          style: TextStyle(
+                              color: MyColors.grey,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
                   ),
                   SizedBox(height: 30),
                   FadeAnimation(
-                    delay: 1.5,
-                    child: GFilledButton(btnText: "Sign in",)
-                  ),
+                      delay: 1.5,
+                      child: GFilledButton(
+                        btnText: "Sign in",
+                        onTap: () {
+                          Navigator.pushReplacementNamed(context, '/DashBoard');
+                        },
+                      )),
                   FadeAnimation(
                     delay: 1.6,
                     child: Padding(
@@ -147,12 +170,39 @@ class _SignInState extends State<SignIn> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      FadeAnimation1(delay: 1.3,child: Image.asset("assets/logo/google.png",height: 50,)),
-                      FadeAnimation1(delay: 1.4,child: Image.asset("assets/logo/facebook.png",height: 50,),),
-                        FadeAnimation1(delay: 1.3,child: Image.asset("assets/logo/twitter.png",height: 50,),)
+                      FadeAnimation1(
+                          delay: 1.3,
+                          child: GestureDetector(
+                              onTap: () {},
+                              child: Image.asset(
+                                "assets/logo/google.png",
+                                height: 50,
+                              ))),
+                      FadeAnimation1(
+                        delay: 1.4,
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Image.asset(
+                            "assets/logo/facebook.png",
+                            height: 50,
+                          ),
+                        ),
+                      ),
+                      FadeAnimation1(
+                        delay: 1.3,
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Image.asset(
+                            "assets/logo/twitter.png",
+                            height: 50,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
-                  SizedBox(height: 20,)
+                  SizedBox(
+                    height: 20,
+                  )
                 ],
               ),
             )

@@ -14,6 +14,7 @@ class CustomOutlineButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: btnWidth,
+      height: 43,
       child: OutlineButton(
         textColor: btnColor ?? MyColors.primary,
           child: Text(btnText),

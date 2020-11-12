@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:lets_pool/dashBoard/findRide.dart';
 import 'package:lets_pool/dashBoard/offerRide.dart';
+import 'package:lets_pool/drawer.dart';
 import 'package:lets_pool/utils/my_color.dart';
 import 'package:lets_pool/widgets/appBar/appBarButtons.dart';
 import 'package:lets_pool/widgets/containers/elevatedContainer.dart';
@@ -61,19 +62,23 @@ class _DashBoardState extends State<DashBoard> with SingleTickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MyDrawer(),
       body: Stack(
         children: [
           GoogleMap(
             initialCameraPosition: _cameraPosition,
             mapType: _currentMapType,
             onMapCreated: _onMapCreated,
+            myLocationEnabled: true,
+            myLocationButtonEnabled: false,
             compassEnabled: false,
             zoomGesturesEnabled: true,
             zoomControlsEnabled: false,
           ),
           Align(
-            alignment: Alignment(0.88, -0.18),
+            alignment: Alignment(0.88, -0.1),
             child: RoundedIconButton(
+              heroTag: "currentLocation",
               onPressed: _currentLocation,
               backgroundColor: MyColors.white,
               icon: Icons.my_location,
@@ -89,19 +94,20 @@ class _DashBoardState extends State<DashBoard> with SingleTickerProviderStateMix
             child: Padding(
               padding: const EdgeInsets.only(left: 15,right: 15),
               child: ElevatedContainer(
-                height: MediaQuery.of(context).size.height*0.5,
+                height: MediaQuery.of(context).size.height*0.46,
                 child: Column(
                   children: [
                     TabBar(
+                      indicatorPadding: EdgeInsets.zero,
                         indicatorSize: TabBarIndicatorSize.label,
                         controller: _tabController,
                         unselectedLabelColor: MyColors.black,
                         labelColor: MyColors.primary,
-                        // labelStyle: TextStyle(color: MyColors.primary, fontWeight: FontWeight.bold),
                         unselectedLabelStyle: TextStyle(color: MyColors.black),
                         indicator: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
                             color: MyColors.primaryLight),
+                            indicatorWeight: 0,
                         tabs: [
                           Tab(
                             child: Align(
@@ -131,7 +137,7 @@ class _DashBoardState extends State<DashBoard> with SingleTickerProviderStateMix
                           ),
                         ]),
                     Container(
-                      height: MediaQuery.of(context).size.height*0.38,
+                      height: MediaQuery.of(context).size.height*0.35,
                       child: TabBarView(
                           controller: _tabController,
                           children: <Widget>[

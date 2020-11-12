@@ -1,7 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_google_maps/flutter_google_maps.dart';
+import 'package:lets_pool/auth/newPassword.dart';
+import 'package:lets_pool/auth/otp.dart';
+import 'package:lets_pool/auth/recoveryPage.dart';
+import 'package:lets_pool/auth/signIn.dart';
+import 'package:lets_pool/auth/signUp.dart';
+import 'package:lets_pool/bankPages/addBankAccount.dart';
+import 'package:lets_pool/bankPages/bankList.dart';
+import 'package:lets_pool/chat.dart';
+import 'package:lets_pool/chatPages/chatScreen.dart';
 import 'package:lets_pool/checkIn.dart';
+import 'package:lets_pool/checkout.dart';
 import 'package:lets_pool/dashBoard/dashBoard.dart';
+import 'package:lets_pool/dashBoard/notification.dart';
+import 'package:lets_pool/feedback.dart';
+import 'package:lets_pool/groupInfo.dart';
+import 'package:lets_pool/matchingPassenger.dart';
+import 'package:lets_pool/matchingRiders.dart';
+import 'package:lets_pool/myWallet.dart';
+import 'package:lets_pool/onBoarding/onBoarding.dart';
+import 'package:lets_pool/ridersRoute.dart';
+import 'package:lets_pool/tripDetails.dart';
+import 'package:lets_pool/utils/my_color.dart';
 
 void main() {
   GoogleMap.init("AIzaSyBBfxdM8iNpr-mGEsmUvP81nvZlf33Q9GM");
@@ -16,9 +36,34 @@ class MyApp extends StatelessWidget {
       title: 'Let\'s Pool',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        primaryColor: MyColors.primary,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: DashBoard(),
+      // home: MatchingRiders(),
+      initialRoute: '/',
+      routes: {
+       '/': (context) => GroupInfo(),
+        '/OTPPage': (context) => OTPPage(),
+        '/NotificationScreen': (context) => NotificationScreen(),
+        '/NewPassword': (context) => NewPassword(),
+        '/RecoveryPage': (context) => RecoveryPage(),  
+        '/SignIn': (context) => SignIn(),
+        '/SignUp': (context) => SignUp(),
+        '/AddBankAccount': (context) => AddBankAccount(),
+        '/BankList': (context) => BankList(),
+        '/DashBoard': (context) => DashBoard(),
+        '/OnBoarding': (context) => OnBoarding(),
+        '/ChatScreen': (context) => ChatScreen(),
+        '/Chat': (context) => Chat(),
+        '/CheckIn': (context) => CheckIn(),
+        '/Checkout': (context) => Checkout(),
+        '/FeedBack': (context) => FeedBack(),
+        '/MatchingPassenger': (context) => MatchingPassenger(),
+        '/MatchingRiders': (context) => MatchingRiders(),
+        '/MyWallet': (context) => MyWallet(),
+        '/RidersRoute': (context) => RidersRoute(),
+        '/TripDetails': (context) => TripDetails(),
+      }, 
     );
   }
 }

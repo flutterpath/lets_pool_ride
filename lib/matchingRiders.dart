@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lets_pool/matchingRideGroups.dart';
 import 'package:lets_pool/newInvite.dart';
 import 'package:lets_pool/riders.dart';
 import 'package:lets_pool/utils/my_color.dart';
@@ -66,7 +67,7 @@ class _MatchingRidersState extends State<MatchingRiders> with SingleTickerProvid
                     NewInvite(),
                     Riders(),
                     Riders(),
-                    Riders(),
+                    MatchingRideGroup(),
                     Riders(),
                   ]),
             )

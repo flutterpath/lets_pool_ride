@@ -7,13 +7,17 @@ class RoundedIconButton extends StatelessWidget {
   final Color iconColor;
   final IconData icon;
   final double iconSize;
+  final String imageIcon;
+  final double imageHeight;
   final double elevation;
+  final Object heroTag;
 
-  const RoundedIconButton({Key key, this.onPressed, this.backgroundColor, this.icon, this.iconSize, this.iconColor, this.elevation,}) : super(key: key);
+  const RoundedIconButton({Key key, this.onPressed, this.backgroundColor, this.icon, this.iconSize, this.iconColor, this.elevation, this.imageIcon, this.imageHeight, this.heroTag,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
+      heroTag: heroTag,
       elevation: elevation ?? 0,
       onPressed: onPressed,
       backgroundColor: backgroundColor ?? MyColors.white,

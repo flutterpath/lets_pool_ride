@@ -36,7 +36,7 @@ class _OnBoardingState extends State<OnBoarding> {
     return Container(
       width: 90,
       height: 90,
-      margin: EdgeInsets.symmetric(vertical: 12),
+      margin: EdgeInsets.symmetric(vertical: 30),
       child: Stack(
         children: <Widget>[
           Align(
@@ -58,6 +58,9 @@ class _OnBoardingState extends State<OnBoarding> {
                   _controller.animateToPage(initialPage + 1,
                       duration: Duration(microseconds: 500),
                       curve: Curves.easeIn);
+                if (initialPage == list.length-1) {
+                  Navigator.pushReplacementNamed(context, '/SignUp');
+                }
               },
               child: Container(
                 width: 65,
@@ -89,9 +92,12 @@ class _OnBoardingState extends State<OnBoarding> {
           textAlign: TextAlign.center,
         ),
         SizedBox(height: 20,),
-        Text16SemiBold(
-          text: subText,
-          textAlign: TextAlign.center,
+        Padding(
+          padding: const EdgeInsets.only(left: 15, right: 15),
+          child: Text16SemiBold(
+            text: subText,
+            textAlign: TextAlign.center,
+          ),
         )
       ],
     );
@@ -121,28 +127,5 @@ class _OnBoardingState extends State<OnBoarding> {
         ],
       ),
     );
-    // return Scaffold(
-    //   body: Padding(
-    //     padding: const EdgeInsets.only(right: 20, left: 20),
-    //     child: Column(
-    //       mainAxisAlignment: MainAxisAlignment.end,
-    //       crossAxisAlignment: CrossAxisAlignment.center,
-    //       children: [
-    //         Container(height: 300,child: Image.asset("assets/onBoarding/onBoarding1.png", fit: BoxFit.cover,)),
-    //         SizedBox(height: 30,),
-    //         Text32Bold(
-    //           text: "Request Ride",
-    //         ),
-    //         SizedBox(height: 20,),
-    //         Text16SemiBold(
-    //           text: "Request a ride get picked up by a nearby community driver",
-    //           textAlign: TextAlign.center,
-    //         ),
-    //         SizedBox(height: MediaQuery.of(context).size.height*0.25,)
-    //
-    //       ],
-    //     ),
-    //   ),
-    // );
   }
 }

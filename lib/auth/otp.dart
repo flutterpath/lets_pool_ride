@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:lets_pool/utils/my_color.dart';
+import 'package:lets_pool/widgets/animation/fadeAnimation.dart';
+import 'package:lets_pool/widgets/animation/fadeAnimation1.dart';
 import 'package:lets_pool/widgets/appBar/backAppbar.dart';
 import 'package:lets_pool/widgets/buttons/gFilledButton.dart';
 import 'package:lets_pool/widgets/text/text16SemiBold.dart';
@@ -41,7 +43,6 @@ class _OTPPageState extends State<OTPPage> {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: MyColors.white,
       body: Padding(
@@ -50,18 +51,18 @@ class _OTPPageState extends State<OTPPage> {
           children: [
             BackAppBar(),
             SizedBox(height: 10,),
-            Text32Bold(
+            FadeAnimation(delay: 1,child:Text32Bold(
               text: "Recovery",
-            ),
+            ),),
             SizedBox(height: 10,),
-            Text16SemiBold(
+            FadeAnimation(delay: 1.1,child:Text16SemiBold(
               text: "Enter the recovery code you received",
               color: MyColors.black,
-            ),
+            ),),
             SizedBox(height: height*0.1,),
             Form(
               key: formKey,
-              child: PinCodeTextField(
+              child: FadeAnimation1(delay: 1.2,child: PinCodeTextField(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 backgroundColor: Colors.transparent,
                 appContext: context,
@@ -81,14 +82,17 @@ class _OTPPageState extends State<OTPPage> {
                 textStyle: TextStyle(fontSize: 20, height: 1.4),
                 errorAnimationController: errorController,
                 controller: textEditingController,
-                keyboardType: TextInputType.number,
-              ),
+                keyboardType: TextInputType.number, onChanged: (String value) {  },
+              ),),
             ),
             SvgPicture.asset("assets/illustration/otp.svg", height: height*0.3,),
             SizedBox(height: 50,),
-            GFilledButton(
+            FadeAnimation(delay: 1.3,child:GFilledButton(
               btnText: "Submit",
-            )
+              onTap: (){
+                Navigator.pushNamed(context, '/SignIn');
+              },
+            ),),
           ],
         ),
       ),
