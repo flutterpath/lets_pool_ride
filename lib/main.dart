@@ -23,6 +23,7 @@ import 'package:lets_pool/myRide.dart';
 import 'package:lets_pool/myWallet.dart';
 import 'package:lets_pool/onBoarding/onBoarding.dart';
 import 'package:lets_pool/ridersRoute.dart';
+import 'package:lets_pool/splash.dart';
 import 'package:lets_pool/tripDetails.dart';
 import 'package:lets_pool/utils/my_color.dart';
 
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-       '/': (context) => DashBoard(),
+       '/': (context) => SplashScreen(),
         '/RedeemPoints': (context) => RedeemPoints(),
         '/MyRide': (context) => MyRide(),
         '/OTPPage': (context) => OTPPage(),

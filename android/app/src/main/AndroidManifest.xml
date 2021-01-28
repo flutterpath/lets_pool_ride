@@ -9,8 +9,8 @@
 
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="lets_pool"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Lets Pool"
+        android:icon="@mipmap/launcher_icon">
         <meta-data android:name="com.google.android.geo.API_KEY"
                    android:value="AIzaSyBBfxdM8iNpr-mGEsmUvP81nvZlf33Q9GM"/>
 
