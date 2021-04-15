@@ -55,7 +55,7 @@ class _NewRequestState extends State<NewRequest> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CircleAvatar(radius: 22,backgroundImage: AssetImage("assets/avatar/avatar2.png",)),
+                    CircleAvatar(radius: 22,backgroundImage: AssetImage("assets/avatar/avatar1.png",)),
                     SizedBox(width: 10,),
                     Container(
                       child: Expanded(

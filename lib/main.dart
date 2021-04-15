@@ -25,6 +25,7 @@ import 'package:lets_pool/onBoarding/onBoarding.dart';
 import 'package:lets_pool/ridersRoute.dart';
 import 'package:lets_pool/splash.dart';
 import 'package:lets_pool/tripDetails.dart';
+import 'package:lets_pool/utils/location_declaration.dart';
 import 'package:lets_pool/utils/my_color.dart';
 
 void main() {
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
         '/NotificationScreen': (context) => NotificationScreen(),
         '/NewPassword': (context) => NewPassword(),
         '/RecoveryPage': (context) => RecoveryPage(),  
+        '/LocationDeclare': (context) => LocationDeclaration(),  
         '/SignIn': (context) => SignIn(),
         '/SignUp': (context) => SignUp(),
         '/GroupInfo': (context) => GroupInfo(),

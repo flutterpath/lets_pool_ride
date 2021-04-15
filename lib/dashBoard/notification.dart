@@ -74,7 +74,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       CircleAvatar(
                           radius: 22,
                           backgroundImage: AssetImage(
-                            "assets/avatar/avatar2.png",
+                            "assets/avatar/avatar3.png",
                           )),
                       SizedBox(
                         width: 10,

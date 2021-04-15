@@ -81,10 +81,9 @@ class _SignUpState extends State<SignUp> {
                   MediaQuery.of(context).size.height / 3.5,
               width: MediaQuery.of(context).size.width,
               padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.05,
                   left: 20,
                   right: 20),
-              child: Column(
+              child: ListView(
                 children: <Widget>[
                   FadeAnimation(
                       delay: 1,
@@ -151,9 +150,12 @@ class _SignUpState extends State<SignUp> {
                       )),
                   FadeAnimation(
                     delay: 1.6,
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 30, bottom: 30),
-                      child: Text("---  OR  ---"),
+                    child: Align(
+                      alignment: Alignment.center,
+                                          child: Padding(
+                        padding: const EdgeInsets.only(top: 30, bottom: 30),
+                        child: Text("---  OR  ---"),
+                      ),
                     ),
                   ),
                   Row(
@@ -181,6 +183,7 @@ class _SignUpState extends State<SignUp> {
                       )
                     ],
                   ),
+                  SizedBox(height: 50,),
                 ],
               ),
             )

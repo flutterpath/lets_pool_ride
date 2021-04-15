@@ -208,7 +208,7 @@ class _CheckInState extends State<CheckIn> {
                                 children: [
                                   Column(
                                     children: [
-                                      CircleAvatarWidget(imagePath: "assets/avatar/avatar2.png",),
+                                      CircleAvatarWidget(imagePath: "assets/avatar/avatar3.png",),
                                       SizedBox(height: 5,),
                                       NormalText(text: "Ram",fontSize: 12,),
                                     ],

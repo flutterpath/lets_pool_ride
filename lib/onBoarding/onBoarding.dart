@@ -59,7 +59,7 @@ class _OnBoardingState extends State<OnBoarding> {
                       duration: Duration(microseconds: 500),
                       curve: Curves.easeIn);
                 if (initialPage == list.length-1) {
-                  Navigator.pushReplacementNamed(context, '/SignUp');
+                  Navigator.pushReplacementNamed(context, '/LocationDeclare');
                 }
               },
               child: Container(

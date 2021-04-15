@@ -87,7 +87,7 @@ class _CheckoutState extends State<Checkout> {
                     CircleAvatar(
                         radius: 22,
                         backgroundImage: AssetImage(
-                          "assets/avatar/avatar2.png",
+                          "assets/avatar/avatar1.png",
                         )),
                     SizedBox(
                       width: 10,
@@ -390,7 +390,7 @@ class _CheckoutState extends State<Checkout> {
                     ),
                     customHeader: CircleAvatarWidget(
                       radius: 45,
-                      imagePath: "assets/avatar/avatar2.png",
+                      imagePath: "assets/avatar/avatar3.png",
                     ),
                   )..show();
                 },

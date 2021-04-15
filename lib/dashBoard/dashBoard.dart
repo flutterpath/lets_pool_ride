@@ -70,6 +70,11 @@ class _DashBoardState extends State<DashBoard> with SingleTickerProviderStateMix
             mapType: _currentMapType,
             onMapCreated: _onMapCreated,
             myLocationEnabled: true,
+            trafficEnabled: true,
+            buildingsEnabled: true,
+            rotateGesturesEnabled: true,
+            scrollGesturesEnabled: true,
+            tiltGesturesEnabled: true,
             myLocationButtonEnabled: false,
             compassEnabled: false,
             zoomGesturesEnabled: true,
@@ -95,7 +100,7 @@ class _DashBoardState extends State<DashBoard> with SingleTickerProviderStateMix
               padding: const EdgeInsets.only(left: 15,right: 15),
               child: ElevatedContainer(
                 height: MediaQuery.of(context).size.height*0.46,
-                child: Column(
+                child: ListView(
                   children: [
                     TabBar(
                       indicatorPadding: EdgeInsets.zero,
